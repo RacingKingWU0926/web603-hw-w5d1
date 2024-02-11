@@ -28,7 +28,13 @@ exports.getInventory = (req, res) => {
   Inventory
   .findById(req.params.id).select('-__v')
   .then(inventory => {
-    res.status(200).json(inventory);
+    if (!inventory) {
+      return res.status(404).send({
+        message: `No inventory found with id ${req.params.id}`,
+        error: 'inventory not found'
+      });
+    }
+    res.status(200).json(inventory)
   })
   .catch(err => {
     if (err.kind === 'ObjectId') {
@@ -62,7 +68,7 @@ exports.inventories = (req, res) => {
 
 exports.deleteInventory = (req, res) => {
   Inventory
-  .findByIdAndRemove(req.params.id)
+  .findOneAndDelete(req.params.id)
   .select('-__v-__id')
   .then(inventory => {
     if (!inventory) {
@@ -84,7 +90,7 @@ exports.deleteInventory = (req, res) => {
 exports.updateInventory = (req, res) => {
   Inventory
   .findByIdAndUpdate(
-    req.body._id,
+    req.params.id,
     {
       prodname: req.body.prodname,
       qty: req.body.qty,
