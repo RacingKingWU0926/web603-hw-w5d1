@@ -79,7 +79,9 @@ $ npm intall express mongoose cors body-parser dotenv
 
 ## Test All Endpoints
 
-If everything works correctly, running the app by `npm start` at project root.
+**Make sure `mongod` is running.** Run `mongod` (or `mongod --bind_ip 0.0.0.0` if required).
+
+Start the app by `npm start` at project root.
 
 For GET endpoints, you can easily test them in a browser. For POST, PUT, and DELETE methods, you can test them using `curl` or Postman.
 
