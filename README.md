@@ -74,6 +74,9 @@ Regarding dependencies, only the following ones need to be installed:
 $ npm intall express mongoose cors body-parser dotenv
 ```
 
+---
+---
+
 ## Test All Endpoints
 
 If everything works correctly, running the app by `npm start` at project root.
@@ -82,7 +85,7 @@ For GET endpoints, you can easily test them in a browser. For POST, PUT, and DEL
 
 ***Make sure to test all endpoints!***
 
-Try to cover as many cases as possible, as there might be typo, bugs, or deprecated APIs. And see if the response is desired. For example, in case of retrieving, updating, or deleting an inventory by id, think about if it is better to return `null` (response 200) or to raise DNE error (response 404) for each use case.
+Try to cover as many cases as possible, as there might be typos, bugs, and deprecated APIs. And see if the responses are desired. For example, in case of retrieving, updating, or deleting an inventory by id, think about if it is better to return `null` (response 200) or to raise DNE error (response 404).
 
 ### List Inventories
 ```
@@ -90,6 +93,7 @@ GET /api/inventories/
 ```
 ![list inventories](screenshots/list-inventories.png)
 
+---
 ### Create An Inventory
 ```
 POST /api/inventories/
@@ -100,6 +104,7 @@ List inventories after creating an inventory.
 
 ![list inventories after create](screenshots/list-inventories-after-create.png)
 
+---
 ### Get Inventory By Id
 ```
 GET /api/inventories/:id
@@ -113,6 +118,7 @@ Inventory does not exist:
 
 ![alt text](screenshots/get-inventory-dne.png)
 
+---
 ### Update An Inventory
 ```
 PUT /api/inventories/:id
@@ -122,6 +128,7 @@ PUT /api/inventories/:id
 
 ![get inventory after update](screenshots/get-inventory-after-update.png)
 
+---
 ### Delete An Inventory
 ```
 DELETE /api/inventories/:id
